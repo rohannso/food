@@ -1,0 +1,64 @@
+{% extends 'food/base.html' %}
+{% block body %}
+<div class="profile-container">
+    <div class="profile-card">
+        <img src="{{ user.profile.image.url }}" alt="Profile Image" class="profile-image">
+        <h1 class="username">{{ user.username }}</h1>
+    </div>
+</div>
+
+<style>
+    /* Centered profile container styling */
+    .profile-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80vh;
+        background-color: #f0f2f5;
+    }
+
+    /* Profile card styling */
+    .profile-card {
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        max-width: 350px;
+        width: 100%;
+    }
+
+    /* Profile image styling */
+    .profile-image {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 20px;
+        border: 4px solid #4CAF50;
+    }
+
+    /* Username styling */
+    .username {
+        font-size: 24px;
+        color: #333;
+        margin: 0;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .profile-card {
+            padding: 20px;
+        }
+
+        .profile-image {
+            width: 120px;
+            height: 120px;
+        }
+
+        .username {
+            font-size: 20px;
+        }
+    }
+</style>
+{% endblock %}

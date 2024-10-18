@@ -1,0 +1,30 @@
+{% extends 'food/base.html' %}
+
+{% block body %}
+<div class="container mt-5">
+    <div class="text-center mb-4">
+        <h1 class="display-4">{{ item.item_name }}</h1>
+        <h2 class="text-muted">Item ID: {{ item.id }}</h2>
+    </div>
+    <div class="card mx-auto shadow-lg" style="width: 80%;">
+        <div class="card-img-top position-relative">
+            <img src="{{ item.item_image }}" class="img-fluid" alt="{{ item.item_name }}" style="height: 300px; object-fit: cover; width: 100%;">
+            <div class="card-img-overlay d-flex justify-content-end align-items-start">
+                <span class="badge bg-primary text-white fs-5">${{ item.item_price }}</span>
+            </div>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title text-primary">Description</h3>
+            <p class="card-text">{{ item.item_desc }}</p>
+        </div>
+    </div>
+    <div class="text-center mt-4">
+        <a href="{% url 'food:idex' %}" class="btn btn-outline-primary me-2">Back to Menu</a>
+        <!-- Delete Button -->
+        <form method="POST" action="{% url 'food:delete' item.id %}" style="display: inline;">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-outline-danger">Delete Item</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
