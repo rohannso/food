@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-j)0+0!gj5rwaa@jey+&g0$d$^e0c!va5lj-9t#836jewzjz2^%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.vercel.app' , '.now.sh']
 
 
 # Application definition
@@ -134,3 +134,5 @@ LOGIN_REDIRECT_URL='food:idex'
 LOGIN_URL='users:login'
 MEDIA_ROOT=os.path.join(BASE_DIR,'pictures')
 MEDIA_URL='/pictures/'
+STATICFILES_DIRS=os.path.join(BASE_DIR,'static'),
+STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles_build','static')
