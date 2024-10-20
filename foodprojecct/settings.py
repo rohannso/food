@@ -81,14 +81,13 @@ WSGI_APPLICATION = 'foodprojecct.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'foodproject',  # The name of your MySQL database
-        'USER': 'root',       # The MySQL username
-        'PASSWORD': 'Rohannso@14',  # The MySQL password
-        'HOST': '127.0.0.1',     # Or the host of your MySQL server
-        'PORT': '3306',          # Default MySQL port
+        'NAME': os.environ.get('DB_NAME', 'foodproject'),  # Change here
+        'USER': os.environ.get('DB_USER', 'root'),         # Change here
+        'PASSWORD': os.environ.get('DB_PASSWORD', 'Rohannso@14'),  # Change here
+        'HOST': os.environ.get('DB_HOST', '127.0.0.1'),    # Change here
+        'PORT': os.environ.get('DB_PORT', '3306'),          # Change here
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
